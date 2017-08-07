@@ -38,7 +38,7 @@ public class HomePresenter extends Presenter<HomeView>{
         list.add(new CProduct("\"Around the World\" (Red Hot Chili Peppers)"));
         list.add(new CProduct("\"A Well-Dressed Hobbit\" (Rie Sheridan Rose, Marc Gunn)"));
         list.add(new CProduct("\"All My Ex's Live in Texas\" (George Strait and Whitey Shafer)"));
-        viewRemote.onShowData(list);
+        viewRemote.onShowLocalData(list);
     }
 
 }

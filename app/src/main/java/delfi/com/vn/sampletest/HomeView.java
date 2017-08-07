@@ -9,5 +9,5 @@ import dk.delfi.core.common.presenter.BaseView;
  */
 
 public interface  HomeView extends BaseView{
-    void onShowData(List<CProduct>list);
+    void onShowLocalData(List<CProduct>list);
 }
