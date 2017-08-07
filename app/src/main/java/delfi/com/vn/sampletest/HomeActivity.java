@@ -6,6 +6,8 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
+import android.widget.LinearLayout;
+import android.widget.SeekBar;
 import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
@@ -35,14 +37,19 @@ public class HomeActivity extends BaseActivity implements HomeView,HomeAdapter.L
     }
 
     @Override
-    public void onShowData(Object o, int i) {
+    public void onShowData(Object o, int i,View view) {
         CProduct product = (CProduct)o;
-        viewHolder.textView.setText(product.name);
+        LinearLayout linearLayout = view.findViewById(R.id.llHome);
+        adapter.getAdapterRecycleViewHolder().onClick(linearLayout);
+        TextView textView = view.findViewById(R.id.tvCellHome);
+        textView.setText(product.name);
     }
 
     @Override
     public void onShowPosition(int i) {
-
+        Log.d(TAG,"show position : "+i);
+        presenter.getList().get(i).name = "Changed at "+i;
+        adapter.notifyItemChanged(i);
     }
 
     @Override
@@ -61,9 +68,33 @@ public class HomeActivity extends BaseActivity implements HomeView,HomeAdapter.L
     }
 
     @Override
+    public void onStartTrackingTouch(SeekBar seekBar, int i) {
+
+    }
+
+
+
+    @Override
+    public void onStopTrackingTouch(SeekBar seekBar, int i) {
+
+    }
+
+    @Override
+    public void onSwitch(boolean b, int i) {
+
+    }
+
+    @Override
+    public void onProgressChanged(SeekBar seekBar, int i, boolean b, int i1) {
+
+    }
+
+    @Override
     public void onSetView(View view) {
-        viewHolder = new ViewHolder(view);
-        view.setTag(viewHolder);
+//        viewHolder = new ViewHolder(view);
+//
+//        view.setTag(viewHolder);
+
         Log.d(TAG,"show view");
     }
 
@@ -80,6 +111,8 @@ public class HomeActivity extends BaseActivity implements HomeView,HomeAdapter.L
     protected class ViewHolder {
         @BindView(R.id.tvCellHome)
         TextView textView ;
+        @BindView(R.id.llHome)
+        LinearLayout llHome ;
         public ViewHolder(View view) {
             ButterKnife.bind(this, view);
         }
