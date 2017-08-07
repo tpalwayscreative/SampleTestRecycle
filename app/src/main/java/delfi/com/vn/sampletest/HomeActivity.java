@@ -59,4 +59,5 @@ public class HomeActivity extends BaseActivity implements HomeView,HomeAdapter.L
     public void onHideLoading() {
 
     }
+    
 }
