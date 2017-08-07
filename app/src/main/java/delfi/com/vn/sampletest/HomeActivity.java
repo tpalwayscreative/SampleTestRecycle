@@ -25,7 +25,6 @@ public class HomeActivity extends BaseActivity implements HomeView,HomeAdapter.L
         presenter.bindView(this);
         setupRecyclerView();
         presenter.setData();
-
     }
 
     public void setupRecyclerView() {
