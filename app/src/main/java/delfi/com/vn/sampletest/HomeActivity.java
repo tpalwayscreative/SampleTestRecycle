@@ -6,14 +6,9 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
-import android.widget.LinearLayout;
-import android.widget.SeekBar;
-import android.widget.Switch;
 import android.widget.TextView;
-
 import java.util.ArrayList;
 import java.util.List;
-
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import dk.delfi.core.common.activity.BaseActivity;
@@ -39,7 +34,6 @@ public class HomeActivity extends BaseActivity implements HomeView,HomeAdapter.L
         presenter.setData();
     }
 
-
     @Override
     public void onShowData(Object o, int i) {
         CProduct product = (CProduct)o;
@@ -50,7 +44,6 @@ public class HomeActivity extends BaseActivity implements HomeView,HomeAdapter.L
     public void onShowPosition(int i) {
 
     }
-
 
     @Override
     public void onShowLocalData(List<CProduct> list) {
@@ -91,4 +84,5 @@ public class HomeActivity extends BaseActivity implements HomeView,HomeAdapter.L
             ButterKnife.bind(this, view);
         }
     }
+
 }
